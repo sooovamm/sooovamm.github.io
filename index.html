@@ -1,20 +1,335 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/favicon.png" />
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <title>FakeShop</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SOOOVAMM</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f9f9f9;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    /* Navbar */
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 10px 20px;
+      position: fixed;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header .nav-bar ul {
+      display: flex;
+      gap: 15px;
+    }
+
+    header .nav-bar ul li {
+      padding: 5px 10px;
+    }
+
+    header .nav-bar ul li a {
+      color: #fff;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    header .nav-bar ul li a:hover {
+      color: #f39c12;
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+      color: #fff;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+    }
+
+    /* About Section */
+    .about {
+      padding: 50px 20px;
+      background-color: #fff;
+    }
+
+    .about .container {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .about img {
+      width: 300px;
+      border-radius: 50%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .about p {
+      font-size: 1rem;
+    }
+
+    /* Portfolio Section */
+    .portfolio {
+      padding: 50px 20px;
+      background-color: #f4f4f4;
+    }
+
+    .portfolio .container {
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .portfolio h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 2rem;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .portfolio-item {
+      background: #fff;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      border-radius: 8px;
+      transition: transform 0.3s;
+    }
+
+    .portfolio-item:hover {
+      transform: translateY(-10px);
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    /* Services Section */
+    .services {
+      padding: 50px 20px;
+      background-color: #fff;
+    }
+
+    .services .container {
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .services h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .service-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .service-card {
+      background: #f9f9f9;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      width: 300px;
+      text-align: center;
+      transition: box-shadow 0.3s;
+    }
+
+    .service-card:hover {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Contact Section */
+    .contact {
+      padding: 50px 20px;
+      background-color: #f4f4f4;
+    }
+
+    .contact .container {
+      max-width: 1100px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .contact h2 {
+      margin-bottom: 20px;
+    }
+
+    .contact form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      align-items: center;
+    }
+
+    .contact input,
+    .contact textarea {
+      width: 100%;
+      max-width: 500px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+
+    .contact button {
+      padding: 10px 20px;
+      background-color: #2575fc;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .contact button:hover {
+      background-color: #1e63d0;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #333;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>SHUBHAM</h1>
+      <nav class="nav-bar">
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section id="hero" class="hero">
+    <div>
+      <h1>Hey There👋</h1>
+      <p>I am Shubham Rai a passionate web developer with expertise in building responsive and user-friendly websites.</p>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <div class="container">
+      <img src="C:\Users\dell\Desktop\shubham foto.jpg" alt="My Photo">
+      <p>Hello! I am a creative and dedicated web developer with a knack for crafting elegant solutions to complex problems. Let’s build something amazing together!</p>
+    </div>
+  </section>
+
+  <section id="portfolio" class="portfolio">
+    <div class="container">
+      <h2>My Portfolio</h2>
+      <div class="portfolio-grid">
+        <div class="portfolio-item">
+          <img src="C:\Users\dell\Desktop\5_6278288729782096892\ReactFakeShop-main\public\FakeShop.png" alt="Project 1">
+          <p>FakeShop</p>
+        </div>
+        <div class="portfolio-item">
+          <img src="C:\Users\dell\Desktop\india travel 1.jpg" alt="Project 2">
+          <p>Indian Beauty Guide</p>
+        </div>
+        <div class="portfolio-item">
+          <img src="C:\Users\dell\Desktop\Resized_Label_3cm_x_7cm.png" alt="Project 3">
+          <p>Automation Dashboard</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="services">
+    <div class="container">
+      <h2>My Services</h2>
+      <div class="service-cards">
+        <div class="service-card">
+          <h3>Web Development</h3>
+          <p>Custom websites built with the latest technologies.</p>
+        </div>
+        <div class="service-card">
+          <h3>UI/UX Design</h3>
+          <p>Intuitive and visually appealing user experiences.</p>
+        </div>
+        <div class="service-card">
+          <h3>SEO Optimization</h3>
+          <p>Improving search engine rankings to increase visibility.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2>Contact Me</h2>
+      <form action="#" method="post">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Shubham Rai | All Rights Reserved</p>
+  </footer>
+</body>
 </html>
