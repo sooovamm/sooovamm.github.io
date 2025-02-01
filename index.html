@@ -3,8 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+  name="description"
+  content="This is a personal portfolio website which is dedicated to Shubham Rai" />
   <title>SOOOVAMM</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+  <link rel="icon" href="favicon.ico" type="images/ico file" />
   <style>
     /* General Reset */
     * {
@@ -17,7 +21,7 @@
     body {
       font-family: 'Roboto', sans-serif;
       line-height: 1.6;
-      color: #333;
+      color: #330;
       background-color: #f9f9f9;
     }
 
@@ -245,6 +249,7 @@
       color: #fff;
     }
   </style>
+  <link rel="stylesheet" href="style.css" /> 
 </head>
 <body>
   <header>
@@ -258,10 +263,14 @@
           <li><a href="#services">Services</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
+        <form>
+          <input type="search" name="q" placeholder="Search query" />
+          <input type="submit" value="Search" />
+        </form>
       </nav>
     </div>
   </header>
-
+  <main>
   <section id="hero" class="hero">
     <div>
       <h1>Hey There👋</h1>
@@ -271,7 +280,7 @@
 
   <section id="about" class="about">
     <div class="container">
-      <img src="staitic\shubham foto.jpg" alt="My Photo">
+      <img src="images/shubham foto.jpg" alt="My Photo">
       <p>Hello! I am a creative and dedicated web developer with a knack for crafting elegant solutions to complex problems. Let’s build something amazing together!</p>
     </div>
   </section>
@@ -281,15 +290,15 @@
       <h2>My Portfolio</h2>
       <div class="portfolio-grid">
         <div class="portfolio-item">
-          <img src="staitic\FakeShop.png" alt="Project 1">
+          <img src="images/FakeShop.png" alt="Project 1">
           <p>FakeShop</p>
         </div>
         <div class="portfolio-item">
-          <img src="staitic\india travel 1.jpg" alt="Project 2">
+          <img src="images/india travel 1.jpg" alt="Project 2">
           <p>Indian Beauty Guide</p>
         </div>
         <div class="portfolio-item">
-          <img src="staitic\Resized_Label_3cm_x_7cm.png" alt="Project 3">
+          <img src="images/Resized_Label_3cm_x_7cm.png" alt="Project 3">
           <p>Automation Dashboard</p>
         </div>
       </div>
@@ -327,7 +336,17 @@
       </form>
     </div>
   </section>
-
+  <!-- <aside>
+    <h2>Related</h2>
+    <ul>
+      <li><a href="#hero">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+    </ul>
+  </aside> -->
+  </main>
   <footer>
     <p>&copy; 2025 Shubham Rai | All Rights Reserved</p>
   </footer>
