@@ -103,4 +103,5 @@ document.addEventListener("DOMContentLoaded", function () {
     alert("Thank you for reaching out! Your message has been sent successfully.");
     contactForm.reset();
   });
+
 });
